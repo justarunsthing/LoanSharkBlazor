@@ -17,5 +17,6 @@ namespace LoanSharkBlazor.Models
         public double Payment { get; set; }
         public double TotalInterest { get; set; }
         public double TotalCost { get; set; }
+        public List<LoanPayment> AmortizationSchedule { get; set; } = [];
     }
 }
