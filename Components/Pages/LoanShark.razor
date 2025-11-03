@@ -13,8 +13,27 @@
         expressed as the annual percentage rate, or APR. Enter the loan amount, term and interest rate in the fields below and
         click calculate to see your personalized results.
     </p>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <EditForm EditContext="editContext">
+                <DataAnnotationsValidator />
+            </EditForm>
+        </div>
+        <div class="col-12 col-md-6">
+
+        </div>
+    </div>
 </div>
 
 @code {
+    private Loan loan = new();
+    private EditContext? editContext; // Allows complex validation
 
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(loan);
+        loan.PurchaseAmount = 25000;
+        loan.Term = 5; // In years
+        loan.Rate = 5.0;
+    }
 }
