@@ -14,7 +14,7 @@
         click calculate to see your personalized results.
     </p>
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 loanForm p-3 rounded-3">
             <EditForm EditContext="editContext">
                 <DataAnnotationsValidator />
                 <div class="row gy-2">
@@ -48,12 +48,12 @@
             </EditForm>
         </div>
         <div class="col-12 col-md-6 d-flex flex-column justify-content-between px-4 mt-4 mt-md-0">
-            <div>
+            <div class="paymentTitle">
                 <p>
-                    Monthly Title
+                    Your monthly payments
                 </p>
             </div>
-            <div class="display-1">
+            <div class="display-1 payment">
                 @loan.Payment.ToString("C")
             </div>
             <div class="row border border-1 g-0 p-3">
@@ -78,9 +78,14 @@
                         Total Cost
                     </label>
                 </div>
-                <div class="col-6 text-end">
+                <div class="col-6 text-end totalCost">
                     @loan.TotalCost.ToString("C")
                 </div>
+            </div>
+            <div class="text-end mt-2">
+                <button class="btn btn-primary">
+                    Show schedule
+                </button>
             </div>
         </div>
     </div>
