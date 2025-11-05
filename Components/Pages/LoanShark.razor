@@ -105,6 +105,6 @@
 
     private void HandleSubmit()
     {
-        loan.Payment = LoanHelper.CalculatePayment(loan.PurchaseAmount, loan.Rate, loan.Term);
+        loan = LoanHelper.GetPayments(loan);
     }
 }
