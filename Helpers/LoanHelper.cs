@@ -41,6 +41,9 @@ namespace LoanSharkBlazor.Helpers
                 loan.AmortizationSchedule.Add(loanPayment);
             }
 
+            loan.TotalInterest = totalInterest;
+            loan.TotalCost = loan.PurchaseAmount + totalInterest;
+
             return loan;
         }
 
