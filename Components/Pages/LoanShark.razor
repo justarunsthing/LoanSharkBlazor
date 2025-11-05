@@ -83,17 +83,26 @@
                 </div>
             </div>
             <div class="text-end mt-2">
-                <button class="btn btn-primary">
-                    Show schedule
+                <button class="btn btn-primary" @onclick="ToggleSchedule">
+                    @buttonText
                 </button>
             </div>
         </div>
+
+        @if (showSchedule)
+        {
+            <div class="col-12">
+                <PaymentSchedule Payments="loan.AmortizationSchedule" />
+            </div>
+        }
     </div>
 </div>
 
 @code {
     private Loan loan = new();
     private EditContext? editContext; // Allows complex validation
+    private bool showSchedule = false;
+    private string buttonText = "Show Schedule";
 
     protected override void OnInitialized()
     {
@@ -106,5 +115,19 @@
     private void HandleSubmit()
     {
         loan = LoanHelper.GetPayments(loan);
+    }
+
+    private void ToggleSchedule()
+    {
+        if (showSchedule)
+        {
+            showSchedule = false;
+            buttonText = "Show Schedule";
+        }
+        else
+        {
+            showSchedule = true;
+            buttonText = "Hide Schedule";
+        }
     }
 }
